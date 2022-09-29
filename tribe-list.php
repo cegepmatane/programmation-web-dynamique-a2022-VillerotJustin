@@ -1,9 +1,9 @@
 <?php
 
-include "basededonnes.php";
+include "database.php";
 
 $MESSAGE_SQL_LISTE_TRIBES = "SELECT id_tribe, name, summary, logo, color FROM mtgTribe;";
-$requeteListeTribe = $basededonnees->prepare($MESSAGE_SQL_LISTE_TRIBES);
+$requeteListeTribe = $dataBase->prepare($MESSAGE_SQL_LISTE_TRIBES);
 $requeteListeTribe->execute();
 $listeTribe = $requeteListeTribe->fetchAll();
 

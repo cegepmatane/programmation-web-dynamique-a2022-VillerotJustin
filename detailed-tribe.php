@@ -1,10 +1,10 @@
 <?php
 
-include "basededonnes.php";
+include "database.php";
 $id = $_GET['vers'];
 
 $MESSAGE_SQL_LISTE_FILM = "SELECT * FROM mtgTribe WHERE id_tribe =" . $id . ";";
-$requeteListeTribe = $basededonnees->prepare($MESSAGE_SQL_LISTE_FILM);
+$requeteListeTribe = $dataBase->prepare($MESSAGE_SQL_LISTE_FILM);
 $requeteListeTribe->execute();
 $tribe = $requeteListeTribe->fetch();
 
@@ -21,7 +21,7 @@ require 'header.php';
                     <div id="Overlay">
                         <div class="container">
                             <div class="row">
-                                <p class="row"><?=$tribe['desc']?></p>
+                                <p class="row"><?=$tribe['dsc']?></p>
                             </div>
                             <div class="row">
                                 <p class="row"><?=$tribe['mechanics']?></p>

@@ -27,14 +27,14 @@
                         <a class="nav-link" href="tribe-list.php">Tribes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="membre.php">Membre</a>
+                        <a class="nav-link" href="member.php">Membre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="recherche-avancee.php">Recherche</a>
+                        <a class="nav-link" href="advanced-research.php">Recherche</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="traitement-recherche-rapide.php" method="get">
-                    <input  class="form-control me-2" type="search" name="mot" placeholder="Search">
+                <form class="d-flex" action="fast-research-treatment.php" method="get">
+                    <input  class="form-control me-2" type="search" name="mot" placeholder="Ask Fblthp">
                     <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>

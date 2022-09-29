@@ -13,10 +13,10 @@ require 'header.php';
                 <a class="nav-link" href="tribe-list.php">Tribes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="membre.php">Membre</a>
+                <a class="nav-link" href="member.php">Membre</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="recherche-avancee.php">Recherche</a>
+                <a class="nav-link" href="advanced-research.php">Recherche</a>
             </li>
         </ul>
     </div>

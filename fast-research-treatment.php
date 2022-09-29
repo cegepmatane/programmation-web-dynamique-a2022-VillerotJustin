@@ -1,23 +1,26 @@
 <?php
 // print_r($_GET['mot']);
-$mot = $_GET['mot'];
+if(!empty($_GET['mot'])) {
+    $mot = $_GET['mot'];
 
-include "basededonnes.php";
+include "database.php";
 
 $SQL_RECHERCHE_RAPIDE = "
 SELECT * 
 FROM mtgTribe
 WHERE name LIKE '%$mot%'
     OR summary LIKE '%$mot%'
+    OR dsc LIKE '%$mot%'
     OR races LIKE '%$mot%'
     OR mechanics LIKE '%$mot%'
     OR classes LIKE '%$mot%'
     OR personage LIKE '%$mot%'
 ";
 
-$requeteRechercheRapide = $basededonnees->prepare($SQL_RECHERCHE_RAPIDE);
+$requeteRechercheRapide = $dataBase->prepare($SQL_RECHERCHE_RAPIDE);
 $requeteRechercheRapide->execute();
 $resultats = $requeteRechercheRapide->fetchAll();
+}
 $tittle = "Result research";
 require 'header.php';
 ?>
@@ -29,8 +32,9 @@ require 'header.php';
             <div class="container">
                 <div class="row">
                     <?php
-                    foreach ($resultats as $tribe){
-                        ?>
+                    if (!empty($resultats)){
+                        foreach ($resultats as $tribe){
+                            ?>
                         <div class="card col-4 mt-4 mx-1 <?=$tribe['color']?>" style="width: 18rem;">
                             <img height="300" src="images/<?=$tribe['logo']?>" alt="<?=$tribe['logo']?>" class="card-img-top ">
                             <div class="card-body border-dark rounded">
@@ -43,6 +47,12 @@ require 'header.php';
                             </div>
                         </div>
                         <?php
+                        }
+                    } else {
+                        ?>
+                        <h3 class="longlivecenter">Fblthp lost the way so he didn't found a thing</h3>
+                        <img width="5" src="images/Fblthpthelost_1200x.webp">
+                    <?php
                     }
                     ?>
                 </div>
