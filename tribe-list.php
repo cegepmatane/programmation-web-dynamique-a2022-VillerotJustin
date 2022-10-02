@@ -2,10 +2,10 @@
 
 include "database.php";
 
-$MESSAGE_SQL_LISTE_TRIBES = "SELECT id_tribe, name, summary, logo, color FROM mtgTribe;";
-$requeteListeTribe = $dataBase->prepare($MESSAGE_SQL_LISTE_TRIBES);
-$requeteListeTribe->execute();
-$listeTribe = $requeteListeTribe->fetchAll();
+$SQL_REQUEST = "SELECT id_tribe, name, summary, logo, color FROM mtgTribe;";
+$tribeListRequest = $dataBase->prepare($SQL_REQUEST);
+$tribeListRequest->execute();
+$listeTribe = $tribeListRequest->fetchAll();
 
 $tittle = "Tribes";
 require 'header.php';

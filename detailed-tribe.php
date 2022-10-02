@@ -3,10 +3,10 @@
 include "database.php";
 $id = $_GET['vers'];
 
-$MESSAGE_SQL_LISTE_FILM = "SELECT * FROM mtgTribe WHERE id_tribe =" . $id . ";";
-$requeteListeTribe = $dataBase->prepare($MESSAGE_SQL_LISTE_FILM);
-$requeteListeTribe->execute();
-$tribe = $requeteListeTribe->fetch();
+$SQL_REQUEST = "SELECT * FROM mtgTribe WHERE id_tribe =" . $id . ";";
+$detailedTribeRequest = $dataBase->prepare($SQL_REQUEST);
+$detailedTribeRequest->execute();
+$tribe = $detailedTribeRequest->fetch();
 
 $tittle = $tribe['name'];
 require 'header.php';

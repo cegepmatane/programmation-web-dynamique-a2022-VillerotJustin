@@ -15,7 +15,7 @@ if ($estSurServeurTiweb) {
  $utilisateur     = 'root';
  $motdepasse = '';
  $hote       = 'localhost';
- $base       = 'cinema';
+ $base       = 'mtg';
 }
 
 $dsn = 'mysql:dbname=' . $base . ';host=' . $hote;
