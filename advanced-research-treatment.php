@@ -1,9 +1,28 @@
 <?php
 include "database.php";
 
+$researshColor = array();
+
+$SQL_COLOR_REQUEST = "SELECT DISTINCT color FROM mtgTribe;";
+$colorRequest = $database->prepare($SQL_COLOR_REQUEST);
+$colorRequest->execute();
+$colorList = $colorRequest->fetchAll();
+$count = 0;
+
+foreach ($colorList as $color){
+    if (!empty($_GET[$color['color']])){
+        if ($_GET[$color['color']] == 1) {
+           $researshColor[$count] = $color['color'];
+        }
+    }
+    $count ++;
+}
+
+// print("Research color ");
+// print_r($researshColor);
+
 $researshTittle     = $_GET['researchTittle'];
 $researshContent    = $_GET['researshContent'];
-$researshColor      = $_GET['researchColor'];
 $fail = false;
 if (!empty($researshTittle) || !empty($researshContent) || !empty($researshColor)){
     $ADVANCED_RESEARCH_SQL = "SELECT * FROM mtgTribe WHERE ";
@@ -12,22 +31,33 @@ if (!empty($researshTittle) || !empty($researshContent) || !empty($researshColor
         $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(name like '%$researshTittle%')";
         $second = true;
     }
-    if ($second){
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
-    }
     if (!empty($researshContent)){
+        if ($second){
+            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
+        }
         $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "((summary like '%$researshContent%') OR (dsc like '%$researshContent%'))";
         $second = true;
     }
-    if ($second){
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
-    }
     if (!empty($researshColor)){
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(color like '%$researshColor%')";
+        if ($second){
+            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
+        }
+        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ( ";
+        // last element
+        foreach ($researshColor as $color){
+            $lastElement = $color;
+        }
+        foreach ($researshColor as $color){
+            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(color = '$color')";
+            if ($color != $lastElement){
+                $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " OR ";
+            }
+        }
+        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ) ";
     }
     $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . ";";
-    print_r($ADVANCED_RESEARCH_SQL);
-    $advancedResearchRequest = $dataBase->prepare($ADVANCED_RESEARCH_SQL);
+    // print_r($ADVANCED_RESEARCH_SQL);
+    $advancedResearchRequest = $database->prepare($ADVANCED_RESEARCH_SQL);
     $advancedResearchRequest->execute();
     $results = $advancedResearchRequest->fetchAll();
     if (!empty($resultats)){$fail = true;}

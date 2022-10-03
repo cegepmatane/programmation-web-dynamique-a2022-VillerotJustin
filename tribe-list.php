@@ -3,7 +3,7 @@
 include "database.php";
 
 $SQL_REQUEST = "SELECT id_tribe, name, summary, logo, color FROM mtgTribe;";
-$tribeListRequest = $dataBase->prepare($SQL_REQUEST);
+$tribeListRequest = $database->prepare($SQL_REQUEST);
 $tribeListRequest->execute();
 $listeTribe = $tribeListRequest->fetchAll();
 

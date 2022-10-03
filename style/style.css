@@ -22,6 +22,27 @@
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
+.carouselObject{
+	background-color: rgba(0, 0, 0, 0.5)
+}
+
+.carouselObjectControl{
+	background-color: rgba(0, 0, 0, 0.5);
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.falseRow{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
 a {
 	text-decoration: none;
 }

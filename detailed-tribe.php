@@ -4,7 +4,7 @@ include "database.php";
 $id = $_GET['vers'];
 
 $SQL_REQUEST = "SELECT * FROM mtgTribe WHERE id_tribe =" . $id . ";";
-$detailedTribeRequest = $dataBase->prepare($SQL_REQUEST);
+$detailedTribeRequest = $database->prepare($SQL_REQUEST);
 $detailedTribeRequest->execute();
 $tribe = $detailedTribeRequest->fetch();
 
