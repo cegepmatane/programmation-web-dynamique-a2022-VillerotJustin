@@ -7,10 +7,10 @@ $adresseCourante = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[
 $estSurServeurTiweb = strpos($adresseCourante, 'tiweb.cgmatane.qc.ca') !== false ? true : false;
 
 if ($estSurServeurTiweb) {
- $utilisateur     = 'tiweb_';
- $motdepasse = '';
+ $utilisateur     = 'tiweb_villerotj';
+ $motdepasse = '5AInfH9q5k';
  $hote       = 'localhost';
- $base       = 'tiweb_';
+ $base       = 'tiweb_villerotj';
 } else {
  $utilisateur     = 'root';
  $motdepasse = '';

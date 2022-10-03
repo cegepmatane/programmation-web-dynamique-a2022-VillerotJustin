@@ -20,15 +20,18 @@ require 'header.php';
                 <?php
                 foreach ($listeTribe as $tribe){
                     ?>
-                    <div class="card col-4 mt-4 mx-1 <?=$tribe['color']?>" style="width: 18rem;">
-                        <img height="300" src="images/<?=$tribe['logo']?>" alt="<?=$tribe['logo']?>" class="card-img-top ">
-                        <div class="card-body border-dark rounded">
-                            <h5 class="card-title"><?=$tribe['name']?> / <?=$tribe['color']?></h5>
-                            <p class="resume"  ><?=$tribe['summary']?></p>
-
-                        </div>
-                        <div class="card-footer longlivecenter">
-                            <a href="detailed-tribe.php?vers=<?=$tribe['id_tribe']?>" class="btn btn-primary ">See in detail</a>
+                    <div class="mt-4" style="width: 20%;">
+                        <div class="px-0 <?=$tribe['color']?> card">
+                            <div style="background-color: rgb(255, 255, 255, 0.4)">
+                                <img height="300" src="images/<?=$tribe['logo']?>" alt="<?=$tribe['logo']?>" class="card-img-top ">
+                            </div>
+                            <div class="card-body border-dark rounded">
+                                <h5 class="card-title"><?=$tribe['name']?> / <?=$tribe['color']?></h5>
+                                <p class="resume"  ><?=$tribe['summary']?></p>
+                            </div>
+                            <div class="card-footer longlivecenter">
+                                <a href="detailed-tribe.php?vers=<?=$tribe['id_tribe']?>" class="btn btn-primary">See in detail</a>
+                            </div>
                         </div>
                     </div>
                     <?php
