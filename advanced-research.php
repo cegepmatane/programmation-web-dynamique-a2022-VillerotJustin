@@ -26,9 +26,9 @@ require 'header.php';
                                 </div>
                             </div>
                             <div class="form-group row ml-1 my-2">
-                                <label for="inputPassword3" class="col-sm-2 col-form-label">Content</label>
+                                <label for="researshContent" class="col-sm-2 col-form-label">Content</label>
                                 <div class="col-sm-10">
-                                    <textarea type="" class="form-control" name="researshContent" id="researshContent" placeholder="Content"></textarea>
+                                    <textarea class="form-control" name="researshContent" id="researshContent" placeholder="Content"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row ml-1 my-2">
@@ -41,14 +41,14 @@ require 'header.php';
                                                 foreach ($colorList as $color){
                                                     ?>
                                                         <div class="longlivecenter">
-                                                            <input type="hidden" name="<?=$color['color']?>" value="0" />
+                                                            <input type="hidden" name="<?=$color['color']?>" value="0">
                                                             <input type="checkbox"
                                                                    name="<?=$color['color']?>"
                                                                    id="<?=$color['color']?>"
                                                                    value="1"
                                                             >
                                                             <?=$color['color']?>
-                                                            <br/>
+                                                            <br>
                                                         </div>
                                                     <?php
                                                 }

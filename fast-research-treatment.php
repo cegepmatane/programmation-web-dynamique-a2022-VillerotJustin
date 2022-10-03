@@ -54,7 +54,7 @@ require 'header.php';
                     } else {
                         ?>
                         <h3 class="longlivecenter">Fblthp lost the way so he didn't found a thing</h3>
-                        <img width="5" src="images/Fblthpthelost_1200x.webp">
+                        <img width="5" src="images/Fblthpthelost_1200x.webp" alt="Fblthp the lost">
                     <?php
                     }
                     ?>

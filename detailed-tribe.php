@@ -43,7 +43,9 @@ require 'header.php';
                 </div>
                 <div class="col-2">
                     <div class="card col-4 mt-4 mx-1 <?=$tribe['color']?>" style="width: 18rem;">
-                        <img src="images/<?=$tribe['logo']?>" alt="<?=$tribe['logo']?>" class="card-img-top">
+                        <div style="background-color: rgb(255, 255, 255, 0.4)">
+                            <img height="300" src="images/<?=$tribe['logo']?>" alt="<?=$tribe['logo']?>" class="card-img-top ">
+                        </div>
                         <div class="card-body border-dark rounded">
                             <h5 class="card-title">Color: <?=$tribe['color']?></h5>
                             <p class="resume"  ><?=$tribe['summary']?></p>

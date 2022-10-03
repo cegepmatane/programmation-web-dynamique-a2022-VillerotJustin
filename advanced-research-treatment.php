@@ -96,7 +96,12 @@ require 'header.php';
                     } else if ($fail) {
                         ?>
                         <h3 class="longlivecenter">Fblthp lost the way so he didn't found a thing</h3>
-                        <img width="5" src="images/Fblthpthelost_1200x.webp">
+                        <img width="5" src="images/Fblthpthelost_1200x.webp" alt="Fblthp the lost">
+                        <?php
+                    } else {
+                        ?>
+                        <h3 class="longlivecenter">Fblthp found nothing.</h3>
+                        <img width="5" src="images/Fblthpthelost_1200x.webp" alt="Fblthp the lost">
                         <?php
                     }
                     ?>
