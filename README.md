@@ -2,5 +2,5 @@
 
 Justin Villerot
 
-Lien du site :
+Lien du site : https://tiweb.cgmatane.qc.ca/etudiants/2022/villerotj/magicTribes/
 
