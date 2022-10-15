@@ -9,7 +9,7 @@ require 'admin-header.php';
                     <thead>
                     <tr>
                         <th>Input</th>
-                        <th style="width: fit-content">Value</th>
+                        <th>Value</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -51,7 +51,6 @@ require 'admin-header.php';
                             <input type="file" name="logo" id="logo">
                         </td>
                     </tr>
-
                     <tr>
                         <td class="longlivecenter">
                             Races
@@ -60,7 +59,6 @@ require 'admin-header.php';
                             <textarea name="races" id="races" data-type="CHAR" dir="ltr" rows="15" cols="40"></textarea>
                         </td>
                     </tr>
-
                     <tr>
                         <td class="longlivecenter">
                             Mechanics
@@ -74,7 +72,7 @@ require 'admin-header.php';
                             Classes
                         </td>
                         <td>
-                            <input type="text" name="classes" id="classes" placeholder="Classes" size="255" data-maxlength="255" data-type="CHAR" class="textfield">
+                            <input type="text" name="classes" id="classes" placeholder="Classes" data-maxlength="255" data-type="CHAR" class="textfield">
                         </td>
                     </tr>
                     <tr>
@@ -82,7 +80,7 @@ require 'admin-header.php';
                             Personage
                         </td>
                         <td>
-                            <input type="text" name="personage" id="personage" placeholder="Important character" size="255" data-maxlength="255" data-type="CHAR" class="textfield">
+                            <input type="text" name="personage" id="personage" placeholder="Important character" data-maxlength="255" data-type="CHAR" class="textfield">
                         </td>
                     </tr>
                     <tr>
