@@ -1,10 +1,19 @@
 <?php
-$tittle = "AddTribe";
+
+include "../database.php";
+$id = $_GET['vers'];
+$SQL_REQUEST = "SELECT * FROM mtgTribe WHERE id_tribe =" . $id . ";";
+$detailedTribeRequest = $database->prepare($SQL_REQUEST);
+$detailedTribeRequest->execute();
+$tribe = $detailedTribeRequest->fetch();
+
+$tittle = "EditTribe".$tribe['name'];
 require 'admin-header.php';
 ?>
     <div id="page-container">
         <div id="content-wrap" class="container longlivecenter">
-            <form class="justify-content-center" action="add-tribe-treatment.php" method="post">
+            <form class="justify-content-center" action="edit-tribe-treatment.php" method="post">
+                <input hidden id="id" name="id" value="<?=$id?>">
                 <table class="table table-dark table-striped align-middle my-3 insertRowTable w-auto">
                     <thead>
                     <tr>
@@ -24,7 +33,7 @@ require 'admin-header.php';
                             Name
                         </td>
                         <td>
-                            <input type="text" name="name" id="name" placeholder="Tribe Name" size="30" data-maxlength="30" data-type="CHAR" class="textfield" >
+                            <input type="text" name="name" id="name" value="<?=$tribe['name']?>" size="30" data-maxlength="30" data-type="CHAR" class="textfield" >
                         </td>
                     </tr>
                     <tr>
@@ -32,7 +41,7 @@ require 'admin-header.php';
                             Summary
                         </td>
                         <td>
-                            <textarea name="summary" id="summary" data-type="CHAR" dir="ltr" rows="15" cols="40"  class="valid" aria-invalid="false"></textarea>
+                            <textarea name="summary" id="summary" data-type="CHAR" dir="ltr" rows="15" cols="40"  class="valid" aria-invalid="false"><?=$tribe['summary']?></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -40,7 +49,7 @@ require 'admin-header.php';
                             Description
                         </td>
                         <td>
-                            <textarea name="description" id="description" data-type="CHAR" dir="ltr" rows="15" cols="40" ></textarea>
+                            <textarea name="description" id="description" data-type="CHAR" dir="ltr" rows="15" cols="40" ><?=$tribe['dsc']?></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -48,7 +57,7 @@ require 'admin-header.php';
                             Logo
                         </td>
                         <td>
-                            <input type="file" name="logo" id="logo">
+                            <input type="file" name="logo" id="logo" value="<?=$tribe['logo']?>">
                         </td>
                     </tr>
                     <tr>
@@ -56,7 +65,7 @@ require 'admin-header.php';
                             Color
                         </td>
                         <td>
-                            <input type="text" name="color" id="color" placeholder="colortag ex B for black" data-maxlength="6" data-type="CHAR" class="textfield">
+                            <input type="text" name="color" id="color" value="<?=$tribe['color']?>" data-maxlength="6" data-type="CHAR" class="textfield">
                         </td>
                     </tr>
                     <tr>
@@ -64,7 +73,7 @@ require 'admin-header.php';
                             Races
                         </td>
                         <td>
-                            <textarea name="races" id="races" data-type="CHAR" dir="ltr" rows="15" cols="40"></textarea>
+                            <textarea name="races" id="races" data-type="CHAR" dir="ltr" rows="15" cols="40"><?=$tribe['races']?></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -72,7 +81,7 @@ require 'admin-header.php';
                             Mechanics
                         </td>
                         <td>
-                            <textarea name="mechanics" id="mechanics" data-type="CHAR" dir="ltr" rows="15" cols="40" ></textarea>
+                            <textarea name="mechanics" id="mechanics" data-type="CHAR" dir="ltr" rows="15" cols="40" ><?=$tribe['mechanics']?></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -80,7 +89,7 @@ require 'admin-header.php';
                             Classes
                         </td>
                         <td>
-                            <textarea name="classes" id="classes" data-type="CHAR" dir="ltr" rows="15" cols="40"></textarea>
+                            <textarea name="classes" id="classes" data-type="CHAR" dir="ltr" rows="15" cols="40"><?=$tribe['classes']?></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -88,7 +97,7 @@ require 'admin-header.php';
                             Personage
                         </td>
                         <td>
-                            <textarea name="personage" id="personage" data-type="CHAR" dir="ltr" rows="15" cols="40"></textarea>
+                            <textarea name="personage" id="personage" data-type="CHAR" dir="ltr" rows="15" cols="40"><?=$tribe['personage']?></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -96,7 +105,7 @@ require 'admin-header.php';
                             Background
                         </td>
                         <td>
-                            <input type="file" name="backgroung" id="backgroung">
+                            <input type="file" name="backgroung" id="backgroung" value="<?=$tribe['backgroung']?>">
                         </td>
                     </tr>
                     </tbody>

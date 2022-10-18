@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="405.48285mm"
+   width="210.73651mm"
    height="226.66211mm"
-   viewBox="0 0 364.93456 203.99589"
+   viewBox="0 0 189.66286 203.99589"
    version="1.1"
    id="svg5768"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -315,15 +315,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.1767767"
-     inkscape:cx="-533.02154"
+     inkscape:cx="-1522.9712"
      inkscape:cy="555.75937"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1020"
+     inkscape:window-height="1012"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="1080"
      inkscape:window-maximized="1"
      units="mm"
      scale-x="0.9"
@@ -337,7 +337,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -352,17 +352,5 @@
        id="path8205"
        transform="scale(0.238125)"
        inkscape:connector-curvature="0" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot8474"
-       style="font-style:normal;font-weight:normal;font-size:10.66666698px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.238125,0,0,0.238125,-30.404579,-43.297665)"><flowRegion
-         id="flowRegion8476"><rect
-           id="rect8478"
-           width="1260.6704"
-           height="541.44177"
-           x="7155.9204"
-           y="3260.0024" /></flowRegion><flowPara
-         id="flowPara8480"
-         style="font-size:192px">Dimir</flowPara></flowRoot>  </g>
+  </g>
 </svg>

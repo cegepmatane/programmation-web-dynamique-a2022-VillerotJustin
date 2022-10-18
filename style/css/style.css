@@ -137,6 +137,115 @@ a {
 	color: black;
 }
 
+.WGU {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 0, 0, 1) 0%,rgba(0, 240, 0, 1) 50%, rgba(0, 0, 240, 1) 100%);
+	color: black;
+}
+
+.UWB {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 0, 240, 1) 0%,rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 100%);
+	color: white;
+}
+
+.BRU {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(255, 255, 255, 1) 0%,rgba(240, 0, 0, 1) 50%, rgba(0, 0, 240, 1) 100%);
+	color: Black;
+}
+
+.RBG {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(240, 0, 0, 1) 0%,rgba(0, 0, 0, 1) 50%, rgba(0, 240, 0, 1) 100%);
+	color: white;
+}
+
+.GRW {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 240, 0, 1) 0%,rgba(240, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 100%);
+	color: black;
+}
+
+.WBG {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(255, 255, 255, 1) 0%,rgba(0, 0, 0, 1) 50%, rgba(0, 240, 0, 1) 100%);
+	color: white;
+}
+
+.URW {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 0, 240, 1) 0%,rgba(240, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 100%);
+	color: black;
+}
+
+.BGU {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 0, 0, 1) 0%, rgba(0, 240, 0, 1) 50%, rgba(0, 0, 240, 1) 100%);
+	color: black;
+}
+
+.RWB {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(240, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 1) 100%);
+	color: black;
+}
+
+.GRU {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 240, 0, 1) 0%, rgba(240, 0, 0, 1) 50%, rgba(0, 0, 240, 1) 100%);
+	color: black;
+}
+
+.RGB {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(240, 0, 0, 1) 0%, rgba(0, 240, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
+	color: black;
+}
+
+.UBRG {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 0, 240, 1) 0%, rgba(0, 0, 0, 1) 33%, rgba(240, 0, 0, 1) 66%, rgba(0, 240, 0, 1) 100%);
+	color: white;
+}
+
+.BRGW {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 0, 0, 1) 0%, rgba(240, 0, 0, 1) 33%, rgba(0, 240, 0, 1) 66%, rgba(255, 255, 255, 1) 100%);
+	color: black;
+}
+
+.RGWU {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(240, 0, 0, 1) 0%, rgba(0, 240, 0, 1) 33%, rgba(255, 255, 255, 1) 66%, rgba(0, 0, 240, 1) 100%);
+	color: black;
+}
+
+.GWUB {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(0, 240, 0, 1) 0%, rgba(255, 255, 255, 1) 33%, rgba(0, 0, 240, 1) 66%, rgba(0, 0, 0, 1) 100%);
+	color: black;
+}
+
+.WUBR{
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(255, 255, 255, 1) 0%, rgba(0, 0, 240, 1) 33%, rgba(0, 0, 0, 1) 66%, rgba(240, 0, 0, 1) 100%);
+	color: white;
+}
+
+.WUBRG {
+	background: rgb(0, 0, 0);
+	background: conic-gradient(rgba(255, 255, 255, 1) 0%, rgba(0, 0, 240, 1) 25%, rgba(0, 0, 0, 1) 50%, rgba(240, 0, 0, 1) 75%, rgba(0, 240, 0, 1) 100%);
+	color: white;
+}
+
+.CLEAR {
+	background: conic-gradient(rgba(50, 50, 50, 1) 0%, rgba(50, 50, 50, 1) 100%);
+	color: white;
+}
+
+
+
 .longlivecenter {
 	text-align: center;
 }

@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="455.0036mm"
-   height="262.27594mm"
-   viewBox="0 0 409.50324 236.04834"
+   width="262.45166mm"
+   height="262.27643mm"
+   viewBox="0 0 236.20649 236.04878"
    version="1.1"
    id="svg5768"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -314,16 +314,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.088388348"
-     inkscape:cx="-2824.8201"
-     inkscape:cy="1328.3129"
+     inkscape:zoom="0.5"
+     inkscape:cx="951.05863"
+     inkscape:cy="316.51977"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1020"
+     inkscape:window-height="1012"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="1080"
      inkscape:window-maximized="1"
      units="mm"
      scale-x="0.9"
@@ -337,7 +337,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -352,16 +352,5 @@
        transform="scale(0.238125)"
        id="path8394"
        inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:45.71999741px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.238125"
-       x="2492.0212"
-       y="1331.4603"
-       id="text4623"><tspan
-         sodipodi:role="line"
-         id="tspan4621"
-         x="2492.0212"
-         y="1331.4603"
-         style="font-size:45.71999741px;stroke-width:0.238125">Boros</tspan></text>
   </g>
 </svg>
