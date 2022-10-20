@@ -43,9 +43,25 @@ if (!empty($researshTittle) || !empty($researshContent) || !empty($researshColor
             $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
         }
         $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ( ";
+        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ( ";
         // last element
         foreach ($researshColor as $color){
             $lastElement = $color;
+        }
+        foreach ($researshColor as $color){
+            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(color = '%$color%')";
+            if ($color != $lastElement){
+                $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
+            }
+        }
+        $second = true;
+        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ) ";
+        foreach ($researshColor as $color){
+            $lastElement = $color;
+        }
+
+        if ($second){
+            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " OR ";
         }
         foreach ($researshColor as $color){
             $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(color = '$color')";
@@ -56,7 +72,7 @@ if (!empty($researshTittle) || !empty($researshContent) || !empty($researshColor
         $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ) ";
     }
     $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . ";";
-    // print_r($ADVANCED_RESEARCH_SQL);
+    //print_r($ADVANCED_RESEARCH_SQL);
     $advancedResearchRequest = $database->prepare($ADVANCED_RESEARCH_SQL);
     $advancedResearchRequest->execute();
     $results = $advancedResearchRequest->fetchAll();

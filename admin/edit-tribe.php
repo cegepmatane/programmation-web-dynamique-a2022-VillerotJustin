@@ -12,7 +12,7 @@ require 'admin-header.php';
 ?>
     <div id="page-container">
         <div id="content-wrap" class="container longlivecenter">
-            <form class="justify-content-center" action="edit-tribe-treatment.php" method="post">
+            <form class="justify-content-center" action="edit-tribe-treatment.php" method="post" enctype="multipart/form-data">
                 <input hidden id="id" name="id" value="<?=$id?>">
                 <table class="table table-dark table-striped align-middle my-3 insertRowTable w-auto">
                     <thead>
