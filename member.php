@@ -24,6 +24,9 @@ require 'header.php';
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                                     <form method="post" action="admin/connection-treatment.php">
+
+                                        code : admin admin
+
                                         <!-- Email input -->
                                         <div>
                                             <input type="text" id="psdknvqlj" name="psdknvqlj" class="form-control" placeholder="username"/>

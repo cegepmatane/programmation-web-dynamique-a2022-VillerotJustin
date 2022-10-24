@@ -11,10 +11,6 @@ $Classes = $_POST['classes'];
 $Personage = $_POST['personage'];
 $backGround = $_FILES["backgroung"];
 
-echo "<pre>";
-print_r($_FILES);
-echo "</pre>";
-
 if ($Logo['size'] != 0){
     $Logo = addFile($Logo);
 } else {
@@ -30,7 +26,7 @@ function addFile($file){
     $dossierCible = "../images/";
     $fichierCible = $dossierCible . basename($file["name"]);
     if (move_uploaded_file($file["tmp_name"], $fichierCible)) {
-        echo("Succès lors du chargement du fichier.\n");
+        //echo("Succès lors du chargement du fichier.\n");
     }
     else {
         echo "<pre>";

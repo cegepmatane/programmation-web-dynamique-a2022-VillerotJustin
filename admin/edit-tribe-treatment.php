@@ -35,18 +35,15 @@ function addFile($file){
     $fichierCible = $dossierCible . basename($file["name"]);
     if (!file_exists($fichierCible)){
         if (move_uploaded_file($file["tmp_name"], $fichierCible)) {
-            echo("Succès lors du chargement du fichier.\n");
+            //echo("Succès lors du chargement du fichier.\n");
         }
         else {
-
             echo("Erreur lors du chargement du fichier.\n");
         }
     }
     return basename($file["name"]);
 }
 
-print $backGround;
-print $Logo;
 $SQL_REQUEST =
     "UPDATE mtgTribe 
     SET name       = '%s'

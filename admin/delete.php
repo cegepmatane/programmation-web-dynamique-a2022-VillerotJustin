@@ -2,7 +2,6 @@
 
 include "../database.php";
 $id = $_GET['vers'];
-print($id);
 
 $SQL_DELETE_REQUEST = "Delete FROM mtgTribe WHERE id_Tribe =" . $id . ";";
 $deleteRequest = $database->prepare($SQL_DELETE_REQUEST);
