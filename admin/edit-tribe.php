@@ -14,6 +14,7 @@ require 'admin-header.php';
         <div id="content-wrap" class="container longlivecenter">
             <br>
             <h1 class="py-3"><?=$tittle?></h1>
+            <h3 class="py-3">No \</h3>
             <br>
             <div class="d-flex justify-content-center">
                 <form class="justify-content-center" action="edit-tribe-treatment.php" method="post" enctype="multipart/form-data">

@@ -19,51 +19,65 @@ $detailedTribeRequest = $database->prepare($SQL_REQUEST);
 $detailedTribeRequest->execute();
 $files = $detailedTribeRequest->fetch();
 
-if ($Logo['size'] != 0  and substr($Logo['type'],0,5) == "image"){
-    $Logo = addFile($Logo);
-} else {
-    $Logo = $files['logo'];
-}
-if ($backGround['size'] != 0 and substr($Logo['type'],0,5) == "image"){
-    $backGround = addFile($backGround);
-} else {
-    $backGround = $files['backgroung'];;
+$error = null;
+
+if ($Logo != null and $backGround!=null){
+    if ($Logo['size'] != 0 and $Logo['size'] <= 500000  and substr($Logo['type'],0,5) == "image"){
+        $Logo = addFile($Logo);
+    } else if ($Logo['size'] <= 250000) {
+        $Logo = $files['logo'];
+    } else {
+        $error += "Image To Big";
+        echo "<pre>";
+        print("Image To Big");
+        echo "</pre>";
+    }
+
+    if ($backGround['size'] != 0 and $backGround['size'] <= 500000 and substr($backGround['type'],0,5) == "image"){
+        $backGround = addFile($backGround);
+    } else if ($backGround['size'] <= 250000) {
+        $backGround = $files['backgroung'];;
+    } else {
+        $error += "Image To Big";
+        echo "<pre>";
+        print("Image To Big");
+        echo "</pre>";
+    }
 }
 
 function addFile($file){
     $dossierCible = "../images/";
     $fichierCible = $dossierCible . basename($file["name"]);
-    if (!file_exists($fichierCible)){
-        if (move_uploaded_file($file["tmp_name"], $fichierCible)) {
+    if (move_uploaded_file($file["tmp_name"], $fichierCible)) {
             //echo("Succès lors du chargement du fichier.\n");
-        }
-        else {
-            echo("Erreur lors du chargement du fichier.\n");
-        }
+    }
+    else {
+        echo("Erreur lors du chargement du fichier.\n");
     }
     return basename($file["name"]);
 }
 
 $SQL_REQUEST =
     "UPDATE mtgTribe 
-    SET name       = '%s'
-        , summary   = '%s'
-        , dsc       = '%s'
-        , logo      = '%s'
-        , color     = '%s'
-        , races     = '%s'
-        , mechanics = '%s'
-        , classes   = '%s'
-        , personage = '%s'
-        , backgroung= '%s'
+    SET name       = \"%s\"
+        , summary   = \"%s\"
+        , dsc       = \"%s\"
+        , logo      = \"%s\"
+        , color     = \"%s\"
+        , races     = \"%s\"
+        , mechanics = \"%s\"
+        , classes   = \"%s\"
+        , personage = \"%s\"
+        , backgroung= \"%s\"
         Where id_Tribe = '$id';";
 $formattedSql = sprintf($SQL_REQUEST, $name, $Sum, $dsc, $Logo, $Color, $Races, $Mechanics, $Classes, $Personage, $backGround);
 $connectionRequest = $database->prepare($formattedSql);
 $result = $connectionRequest->execute();
 
-if (0!=$result) {
+if (0!=$result and $error == null) {
     header('Location: admin-tribe-list.php?x=4');
     exit();
+} else {
+    echo($error);
 }
-
 ?>

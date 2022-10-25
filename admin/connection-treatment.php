@@ -9,10 +9,11 @@ $SQL_REQUEST =
          WHERE username = '$username' 
            AND password = '$pswd';";
 $connectionRequest = $database->prepare($SQL_REQUEST);
-$result = $connectionRequest->execute();
+$connectionRequest->execute();
+$result = $connectionRequest->fetchAll();
 
 
-if (0!=$result){
+if ($result != null){
     header('Location: admin-tribe-list.php?x=1');
     exit();
 }
