@@ -14,6 +14,13 @@ $Classes    = $_POST['classes'];
 $Personage  = $_POST['personage'];
 $backGround = $_FILES['backgroung'];
 
+$Sum = addslashes($Sum);
+$dsc = addslashes($dsc);
+$Races = addslashes($Races);
+$Mechanics = addslashes($Mechanics);
+$Classes = addslashes($Classes);
+$Personage = addslashes($Personage);
+
 $SQL_REQUEST = "SELECT logo, backgroung FROM mtgTribe WHERE id_tribe =" . $id . ";";
 $detailedTribeRequest = $database->prepare($SQL_REQUEST);
 $detailedTribeRequest->execute();

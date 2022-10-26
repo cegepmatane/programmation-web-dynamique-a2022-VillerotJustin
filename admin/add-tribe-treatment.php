@@ -11,6 +11,13 @@ $Classes = $_POST['classes'];
 $Personage = $_POST['personage'];
 $backGround = $_FILES["backgroung"];
 
+$Sum = addslashes($Sum);
+$dsc = addslashes($dsc);
+$Races = addslashes($Races);
+$Mechanics = addslashes($Mechanics);
+$Classes = addslashes($Classes);
+$Personage = addslashes($Personage);
+
 $error = null;
 
 if ($Logo != null and $backGround!=null){
