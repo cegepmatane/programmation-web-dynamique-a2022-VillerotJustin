@@ -1,13 +1,13 @@
 <?php
 
 include "database.php";
-$id = $_GET['vers'];
+$id = filter_var($_GET['vers'], FILTER_SANITIZE_NUMBER_INT);
 
-$SQL_REQUEST = "SELECT * FROM mtgTribe WHERE id_tribe =" . $id . ";";
+$SQL_REQUEST = "SELECT * FROM mtgTribe WHERE id_tribe = :id;";
 $detailedTribeRequest = $database->prepare($SQL_REQUEST);
-$detailedTribeRequest->execute();
+$detailedTribeRequest->bindParam(':id', $id, PDO::PARAM_INT);
+$tribe = $detailedTribeRequest->execute();
 $tribe = $detailedTribeRequest->fetch();
-
 $tittle = $tribe['name'];
 require 'header.php';
 
