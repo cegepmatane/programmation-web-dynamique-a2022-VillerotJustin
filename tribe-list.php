@@ -1,12 +1,7 @@
 <?php
-
-include "database.php";
-
-$SQL_REQUEST = "SELECT id_tribe, name, summary, logo, color FROM mtgTribe;";
-$tribeListRequest = $database->prepare($SQL_REQUEST);
-$tribeListRequest->execute();
-$listeTribe = $tribeListRequest->fetchAll();
-
+require_once "configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
+$listeTribe = TribeDAO::listTribes();
 $tittle = "Tribes";
 require 'header.php';
 ?>

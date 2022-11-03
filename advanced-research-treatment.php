@@ -1,18 +1,18 @@
 <?php
-include "database.php";
+
+require_once "configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
 
 $researshColor = array();
+$fail = false;
 
-$SQL_COLOR_REQUEST = "SELECT DISTINCT color FROM mtgTribe;";
-$colorRequest = $database->prepare($SQL_COLOR_REQUEST);
-$colorRequest->execute();
-$colorList = $colorRequest->fetchAll();
+$colorList = TribeDAO::colorList();
 $count = 0;
 
 foreach ($colorList as $color){
     if (!empty($_GET[$color['color']])){
         if ($_GET[$color['color']] == 1) {
-           $researshColor[$count] = $color['color'];
+            $researshColor[$count] = $color['color'];
         }
     }
     $count ++;
@@ -23,62 +23,7 @@ foreach ($colorList as $color){
 
 $researshTittle     = $_GET['researchTittle'];
 $researshContent    = $_GET['researshContent'];
-$fail = false;
-if (!empty($researshTittle) || !empty($researshContent) || !empty($researshColor)){
-    $ADVANCED_RESEARCH_SQL = "SELECT * FROM mtgTribe WHERE ";
-    $second = false;
-    if (!empty($researshTittle)){
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(name like '%$researshTittle%')";
-        $second = true;
-    }
-    if (!empty($researshContent)){
-        if ($second){
-            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
-        }
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "((summary like '%$researshContent%') OR (dsc like '%$researshContent%'))";
-        $second = true;
-    }
-    if (!empty($researshColor)){
-        if ($second){
-            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
-        }
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ( ";
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ( ";
-        // last element
-        foreach ($researshColor as $color){
-            $lastElement = $color;
-        }
-        foreach ($researshColor as $color){
-            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(color = '%$color%')";
-            if ($color != $lastElement){
-                $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " AND ";
-            }
-        }
-        $second = true;
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ) ";
-        foreach ($researshColor as $color){
-            $lastElement = $color;
-        }
-
-        if ($second){
-            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " OR ";
-        }
-        foreach ($researshColor as $color){
-            $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . "(color = '$color')";
-            if ($color != $lastElement){
-                $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " OR ";
-            }
-        }
-        $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . " ) ";
-    }
-    $ADVANCED_RESEARCH_SQL = $ADVANCED_RESEARCH_SQL . ";";
-    //print_r($ADVANCED_RESEARCH_SQL);
-    $advancedResearchRequest = $database->prepare($ADVANCED_RESEARCH_SQL);
-    $advancedResearchRequest->execute();
-    $results = $advancedResearchRequest->fetchAll();
-    if (!empty($resultats)){$fail = true;}
-}
-
+$results = TribeDAO::AdvanceResearsch($researshTittle, $researshContent, $researshColor, $fail);
 $tittle = "Advanced Research Result";
 require 'header.php';
 ?>

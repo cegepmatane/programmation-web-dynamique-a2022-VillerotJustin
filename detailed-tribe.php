@@ -1,13 +1,12 @@
 <?php
 
-include "database.php";
+require_once "configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
+
 $id = filter_var($_GET['vers'], FILTER_SANITIZE_NUMBER_INT);
 
-$SQL_REQUEST = "SELECT * FROM mtgTribe WHERE id_tribe = :id;";
-$detailedTribeRequest = $database->prepare($SQL_REQUEST);
-$detailedTribeRequest->bindParam(':id', $id, PDO::PARAM_INT);
-$tribe = $detailedTribeRequest->execute();
-$tribe = $detailedTribeRequest->fetch();
+$tribe = TribeDAO::detailedTribe($id);
+
 $tittle = $tribe['name'];
 require 'header.php';
 

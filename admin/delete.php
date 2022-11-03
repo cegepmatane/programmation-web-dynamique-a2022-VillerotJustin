@@ -1,11 +1,8 @@
 <?php
-
-include "../database.php";
+require_once "../configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
 $id = $_GET['vers'];
-
-$SQL_DELETE_REQUEST = "Delete FROM mtgTribe WHERE id_Tribe =" . $id . ";";
-$deleteRequest = $database->prepare($SQL_DELETE_REQUEST);
-$result = $deleteRequest->execute();
+$result = TribeDAO::deleteTribe($id);
 if (0!=$result){
     header('Location: admin-tribe-list.php?x=3');
     exit();

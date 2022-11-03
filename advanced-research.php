@@ -1,10 +1,9 @@
 <?php
-include "database.php";
 
-$SQL_COLOR_REQUEST = "SELECT DISTINCT color FROM mtgTribe WHERE char_length(color)=1 OR color = 'ELDRA'";
-$colorRequest = $database->prepare($SQL_COLOR_REQUEST);
-$colorRequest->execute();
-$colorList = $colorRequest->fetchAll();
+require_once "configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
+
+$colorList = TribeDAO::monoColorList();
 
 $tittle = "Advanced Research";
 require 'header.php';

@@ -1,5 +1,8 @@
 <?php
 
+require_once "../configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
+
 $Logo = $_FILES["logo"];
 $backGround = $_FILES["backgroung"];
 
@@ -66,22 +69,8 @@ function addFile($file){
     return basename($file["name"]);
 }
 
-include "../database.php";
 
-$SQL_REQUEST =
-    "INSERT INTO mtgTribe (id_Tribe, name, summary, dsc, logo, color, races, mechanics, classes, personage, backgroung) 
-VALUES (NULL, :name, :summary, :description, \"%s\", :color, :races, :mechanics, :classes, :personage, \"%s\");";
-$formattedSql = sprintf($SQL_REQUEST, $Logo, $backGround);
-$connectionRequest = $database->prepare($formattedSql);
-$connectionRequest->bindParam(':name', $tribe['name'], PDO::PARAM_STR);
-$connectionRequest->bindParam(':summary', $tribe['summary'], PDO::PARAM_STR);
-$connectionRequest->bindParam(':description', $tribe['description'], PDO::PARAM_STR);
-$connectionRequest->bindParam(':color', $tribe['color'], PDO::PARAM_STR);
-$connectionRequest->bindParam(':races', $tribe['races'], PDO::PARAM_STR);
-$connectionRequest->bindParam(':mechanics', $tribe['mechanics'], PDO::PARAM_STR);
-$connectionRequest->bindParam(':classes', $tribe['classes'], PDO::PARAM_STR);
-$connectionRequest->bindParam(':personage', $tribe['personage'], PDO::PARAM_STR);
-$result = $connectionRequest->execute();
+$result = TribeDAO::addTribe($tribe, $Logo, $backGround);
 
 if (0!=$result and $error == null){
     header('Location: admin-tribe-list.php?x=2');

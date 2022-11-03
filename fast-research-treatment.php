@@ -3,23 +3,10 @@
 if(!empty($_GET['mot'])) {
     $mot = $_GET['mot'];
 
-include "database.php";
+    require_once "configuration.php";
+    require_once ACCES_PATH . "TribeDAO.php";
 
-$SQL_RECHERCHE_RAPIDE = "
-SELECT * 
-FROM mtgTribe
-WHERE name LIKE '%$mot%'
-    OR summary LIKE '%$mot%'
-    OR dsc LIKE '%$mot%'
-    OR races LIKE '%$mot%'
-    OR mechanics LIKE '%$mot%'
-    OR classes LIKE '%$mot%'
-    OR personage LIKE '%$mot%'
-";
-
-$requeteRechercheRapide = $database->prepare($SQL_RECHERCHE_RAPIDE);
-$requeteRechercheRapide->execute();
-$resultats = $requeteRechercheRapide->fetchAll();
+    $resultats = TribeDAO::fastResearsch($mot);
 }
 $tittle = "Result research";
 require 'header.php';

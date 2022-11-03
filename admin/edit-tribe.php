@@ -1,11 +1,9 @@
 <?php
+require_once "../configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
 
-include "../database.php";
 $id = $_GET['vers'];
-$SQL_REQUEST = "SELECT * FROM mtgTribe WHERE id_tribe =" . $id . ";";
-$detailedTribeRequest = $database->prepare($SQL_REQUEST);
-$detailedTribeRequest->execute();
-$tribe = $detailedTribeRequest->fetch();
+$tribe = TribeDAO::detailedTribe($id);
 
 $tittle = "EditTribe".$tribe['name'];
 require 'admin-header.php';

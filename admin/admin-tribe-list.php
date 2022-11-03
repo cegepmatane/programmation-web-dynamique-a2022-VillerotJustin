@@ -1,14 +1,11 @@
 <?php
 
-include "../database.php";
-
+require_once "../configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
 
 $msg = $_GET['x'];
 
-$SQL_REQUEST = "SELECT id_tribe, name, summary, logo, color FROM mtgTribe;";
-$tribeListRequest = $database->prepare($SQL_REQUEST);
-$tribeListRequest->execute();
-$listeTribe = $tribeListRequest->fetchAll();
+$listeTribe = TribeDAO::listTribes();
 $tittle = "Tribes";
 require 'admin-header.php';
 ?>

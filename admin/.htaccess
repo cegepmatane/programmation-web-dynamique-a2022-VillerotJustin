@@ -1,0 +1,5 @@
+#AuthUserFile "/etudiants/2022/villerotj/mdp/.htpasswd"
+AuthUserFile "/opt/lampp/htdocs/mdp/.htpasswd"
+AuthName "Page admin"
+AuthType Basic
+Require valid-user
