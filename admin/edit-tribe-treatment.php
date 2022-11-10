@@ -32,7 +32,7 @@ $error = null;
 if ($Logo != null and $backGround!=null){
     if ($Logo['size'] != 0 and $Logo['size'] <= 500000  and substr($Logo['type'],0,5) == "image"){
         $Logo = addFile($Logo);
-    } else if ($Logo['size'] <= 250000) {
+    } else if ($Logo['size'] == 0) {
         $Logo = $files['logo'];
     } else {
         $error += "Image To Big";
@@ -43,7 +43,7 @@ if ($Logo != null and $backGround!=null){
 
     if ($backGround['size'] != 0 and $backGround['size'] <= 500000 and substr($backGround['type'],0,5) == "image"){
         $backGround = addFile($backGround);
-    } else if ($backGround['size'] <= 250000) {
+    } else if ($backGround['size'] ==0) {
         $backGround = $files['backgroung'];;
     } else {
         $error += "Image To Big";
@@ -68,7 +68,7 @@ function addFile($file){
 $result = TribeDAO::editTribe($tribe, $Logo, $backGround);
 
 if (0!=$result and $error == null) {
-    header('Location: admin-tribe-list.php?x=4');
+    header('Location: index.php?x=4');
     exit();
 } else {
     echo($error);

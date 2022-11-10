@@ -3,7 +3,7 @@
 require_once "../configuration.php";
 require_once ACCES_PATH . "TribeDAO.php";
 
-$Logo = $_FILES["logo"];
+$avatar = $_FILES["logo"];
 $backGround = $_FILES["backgroung"];
 
 $TRIBE_FILTER = array(
@@ -27,11 +27,11 @@ $tribe['personage'] = addslashes($tribe['personage']);
 
 $error = null;
 
-if ($Logo != null and $backGround!=null){
-    if ($Logo['size'] != 0 and $Logo['size'] <= 250000){
-        $Logo = addFile($Logo);
-    } else if ($Logo['size'] <= 250000) {
-        $Logo = null;
+if ($avatar != null and $backGround!=null){
+    if ($avatar['size'] != 0 and $avatar['size'] <= 250000){
+        $avatar = addFile($avatar);
+    } else if ($avatar['size'] <= 250000) {
+        $avatar = null;
     } else {
         $error += "Image To Big";
         echo "<pre>";
@@ -70,10 +70,10 @@ function addFile($file){
 }
 
 
-$result = TribeDAO::addTribe($tribe, $Logo, $backGround);
+$result = TribeDAO::addTribe($tribe, $avatar, $backGround);
 
 if (0!=$result and $error == null){
-    header('Location: admin-tribe-list.php?x=2');
+    header('Location: index.php?x=2');
     exit();
 }else {
     echo($error);

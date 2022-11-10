@@ -5,7 +5,7 @@ $username = $_POST['psdknvqlj'];
 $pswd = $_POST['jhgvzibca'];
 $result = TribeDAO::connectionTreatment($username, $pswd);
 if ($result != null){
-    header('Location: admin-tribe-list.php?x=1');
+    header('Location: index.php?x=1');
     exit();
 }
 ?>

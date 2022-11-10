@@ -1,50 +1,43 @@
 <?php
-
-$tittle = "Sign In";
-require 'header.php';
+require_once "configuration.php";
+require_once ACCES_PATH ."MemberDAO.php";
+$tittle = "membre";
+require_once "header.php";
 ?>
-
 <div id="page-container">
     <div id="content-wrap">
         <div class="container">
             <br><br><br><br><br><br>
-            <div style="background: black; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
-                <div class="m-3">
-                    <h1 class="py-3"><?=$tittle?></h1>
-                    <div class="row justify-content-center">
-                        <div class="col-10">
-                            <!-- Pills content -->
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                                    <form method="post" action="admin/connection-treatment.php">
-
-                                        code : admin admin
-
-                                        <!-- Email input -->
-                                        <div>
-                                            <input type="text" id="psdknvqlj" name="psdknvqlj" class="form-control" placeholder="username"/>
-                                            <label class="form-label" for="psdknvqlj">Email or username</label>
-                                        </div>
-
-                                        <!-- Password input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="password" id="jhgvzibca" name="jhgvzibca" class="form-control" placeholder="password" />
-                                            <label class="form-label" for="jhgvzibca">Password</label>
-                                        </div>
-
-                                        <!-- Submit button -->
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <h1 class="py-3 longlivecenter"><?=$tittle?></h1>
+            <?php
+            if(isset($_SESSION['member']['username']) && !empty($_SESSION['member']['username'])){
+                ?>
+                <span> Bonjour <?=$_SESSION['member']['username']?> <img src="images/<?=$_SESSION['member']['avatar']?>" alt="avatar" class="image" width="50" height="50"></span>
+                <?php
+            }
+            // afficher is conneter
+            if(empty($_SESSION['member']['username'])){
+                include_once "member/auth.php";
+            } else {
+                include_once "member/member-page.php";
+                ?>
+                <div>
+                    <a href="member/log-out.php" class="text-center mx-1">
+                        <button type="" class="btn btn-primary btn-block mb-4">Log Out</button>
+                    </a>
+                    <a href="member/edit-member.php" class="text-center">
+                        <button type="" class="btn btn-primary btn-block mb-4">Edit</button>
+                    </a>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
+
         </div>
     </div>
     <?php
     require "footer.php";
     ?>
+
+
+

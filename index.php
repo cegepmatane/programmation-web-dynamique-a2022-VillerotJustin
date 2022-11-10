@@ -33,7 +33,7 @@ require 'header.php';
                             <p>A list of every tribe and guild in magic the gathering.</p>
                         </div>
                     </a>
-                    <a class="carousel-item" href="member.php" style="text-decoration: none">
+                    <a class="carousel-item" href="old/member.php" style="text-decoration: none">
                         <img class="d-block w-100" src="images/member.png" alt="Member image">
                         <div class="carousel-caption d-none d-md-block carouselObject rounded">
                             <h5>Member</h5>
