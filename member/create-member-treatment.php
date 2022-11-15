@@ -1,18 +1,19 @@
 <?php
-require_once "../configuration.php";
-require_once ACCES_PATH . "MemberDAO.php";
+require "../configuration.php";
+require ACCES_PATH . "MemberDAO.php";
 $avatar = $_FILES["avatar"];
 
 $MEMBER_FILTER = array(
-    'id' => FILTER_SANITIZE_NUMBER_INT,
     'username' => FILTER_SANITIZE_SPECIAL_CHARS,
+    'password' => FILTER_SANITIZE_SPECIAL_CHARS,
     'mail' => FILTER_SANITIZE_SPECIAL_CHARS,
     'name' => FILTER_SANITIZE_SPECIAL_CHARS,
     'lastName' => FILTER_SANITIZE_SPECIAL_CHARS,
 );
 
 $newMember = filter_input_array(INPUT_POST, $MEMBER_FILTER);
-$newMember['username'] = addslashes($newMember['username']);
+$newMember['username'] = addslashes($_SESSION['dataInscription']['username']);
+$newMember['password'] = password_hash(addslashes($_SESSION['dataInscription']['password']), PASSWORD_DEFAULT);
 $newMember['mail'] = addslashes($newMember['mail']);
 $newMember['name'] = addslashes($newMember['name']);
 $newMember['lastName'] = addslashes($newMember['lastName']);
@@ -53,7 +54,7 @@ function addFile($file){
 echo "<pre>";
 print_r($newMember);
 echo "</pre>";
-$result = MemberDAO::editMember($newMember, $avatar);
+$result = MemberDAO::addMember($newMember, $avatar);
 
 if (0!=$result and $error == null) {
     $_SESSION['member']['id'] = $result['id_User'];
@@ -67,4 +68,3 @@ if (0!=$result and $error == null) {
 } else {
     echo($error);
 }
-?>

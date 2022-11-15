@@ -16,8 +16,12 @@
                         <label class="form-label" for="jhgvzibca">Password</label>
                     </div>
                     <!-- Submit button -->
-                    <div class="text-center">
-                        <button type="submit" id="auth" name="auth" class="btn btn-primary btn-block mb-4">Sign in</button>
+                    <div class="text-center flex-up">
+                        <button type="submit" id="auth" name="auth" class="btn btn-primary btn-block mb-4">Log in</button>
+                        or
+                        <a href="member/create-member.php" class="text-center">
+                            Sign In
+                        </a>
                     </div>
                 </form>
             </div>
