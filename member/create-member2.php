@@ -11,7 +11,7 @@ if (!isset($_POST['Go'])) {
     if ($_POST['password'] != $_POST['password2'] ){
         $_SESSION['error'] = "Error password different!";
     }
-    if (!MemberDAO::isUsed($_POST['username']) || preg_match('/[a-zA-Z0-9]+/', $_POST['username'])){
+    if (!MemberDAO::isUsed($_POST['username']) || !preg_match('/[a-zA-Z0-9]+/', $_POST['username'])){
         $_SESSION['error'] = "Username already existing or not acceptable!";
     }
 }
