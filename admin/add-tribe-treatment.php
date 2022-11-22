@@ -73,7 +73,7 @@ function addFile($file){
 $result = TribeDAO::addTribe($tribe, $avatar, $backGround);
 
 if (0!=$result and $error == null){
-    header('Location: index.php?x=2');
+    header('Location: admin-list.php?x=2');
     exit();
 }else {
     echo($error);

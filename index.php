@@ -1,6 +1,9 @@
 <?php
+require_once "configuration.php";
 $tittle = "Home";
 require 'header.php';
+require_once ACCES_PATH . "ClicDAO.php";
+ClicDAO::registerVisit($_SERVER);
 ?>
 <div id="page-container">
     <div id="content-wrap" class="justify-content-center falseRow">

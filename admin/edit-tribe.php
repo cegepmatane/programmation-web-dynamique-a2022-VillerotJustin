@@ -4,12 +4,14 @@ require_once ACCES_PATH . "TribeDAO.php";
 
 $id = $_GET['vers'];
 $tribe = TribeDAO::detailedTribe($id);
+$racesTribe = TribeDAO::racesTribe($id);
+$races = TribeDAO::listRace();
 
 $tittle = "EditTribe".$tribe['name'];
 require 'admin-header.php';
 ?>
     <div id="page-container">
-        <div id="content-wrap" class="container longlivecenter">
+        <div id="content-wrap" class="container">
             <br>
             <h1 class="py-3"><?=$tittle?></h1>
             <br>
@@ -75,7 +77,19 @@ require 'admin-header.php';
                                 Races
                             </td>
                             <td>
-                                <textarea name="races" id="races" data-type="CHAR" dir="ltr" rows="15" cols="40"><?=$tribe['races']?></textarea>
+                                <?php
+                                $counter = 0;
+                                foreach ($races as $race){
+                                    ?>
+                                    <div class="text-left justify-content-left">
+                                        <input type="checkbox" <?php if (in_array($race['id'], $racesTribe) ) {echo"Checked";}?> id="<?=$race['libele_race']?>" name="<?=$race['libele_race']?>" value="<?=$race['id_race']?>">
+                                        <label for="<?=$race['libele_race']?>"> <?=$race['libele_race']?></label><br>
+                                    </div>
+                                    <?php
+                                    $counter+=1;
+                                }
+
+                                ?>
                             </td>
                         </tr>
                         <tr>

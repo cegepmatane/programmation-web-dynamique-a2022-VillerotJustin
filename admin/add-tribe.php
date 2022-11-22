@@ -1,12 +1,15 @@
 <?php
+require_once "../configuration.php";
+require_once ACCES_PATH . "TribeDAO.php";
+
+$races = TribeDAO::listRace();
 $tittle = "AddTribe";
 require 'admin-header.php';
 ?>
     <div id="page-container">
-        <div id="content-wrap" class="container longlivecenter">
+        <div id="content-wrap" class="container">
             <br>
             <h1 class="py-3"><?=$tittle?></h1>
-            <h3 class="py-3">No \</h3>
             <br>
             <div class="d-flex justify-content-center">
                 <form class="justify-content-center" action="add-tribe-treatment.php" method="post" enctype="multipart/form-data">
@@ -65,11 +68,23 @@ require 'admin-header.php';
                             </td>
                         </tr>
                         <tr>
-                            <td class="longlivecenter">
+                            <td class="text-left justify-content-left">
                                 Races
                             </td>
                             <td>
-                                <textarea name="races" id="races" data-type="CHAR" dir="ltr" rows="15" cols="40"></textarea>
+                                <?php
+                                $counter = 0;
+                                foreach ($races as $race){
+                                    ?>
+                                        <div class="text-left justify-content-left">
+                                            <input type="checkbox" id="<?=$race['libele_race']?>" name="<?=$race['libele_race']?>" value="<?=$race['id_race']?>">
+                                            <label for="<?=$race['libele_race']?>"> <?=$race['libele_race']?></label><br>
+                                        </div>
+                                    <?php
+                                    $counter+=1;
+                                }
+
+                                ?>
                             </td>
                         </tr>
                         <tr>

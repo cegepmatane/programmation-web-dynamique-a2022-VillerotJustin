@@ -2,6 +2,9 @@
 
 require_once "configuration.php";
 require_once ACCES_PATH . "TribeDAO.php";
+require_once ACCES_PATH . "ClicDAO.php";
+
+ClicDAO::registerVisit($_SERVER);
 
 $id = filter_var($_GET['vers'], FILTER_SANITIZE_NUMBER_INT);
 
