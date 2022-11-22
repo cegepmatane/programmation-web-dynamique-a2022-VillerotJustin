@@ -27,12 +27,13 @@ require_once "header.php";
                 include_once "member/member-page.php";
                 ?>
                 <div>
-                    <a href="member/log-out.php" class="text-center mx-1">
-                        <button type="" class="btn btn-primary btn-block mb-4">Log Out</button>
+                    <a href="member/log-out.php" class="btn btn-primary btn-block mb-4 text-center mx-1" style="color: white">
+                        Log Out
                     </a>
-                    <a href="member/edit-member.php" class="text-center">
-                        <button type="" class="btn btn-primary btn-block mb-4">Edit</button>
+                    <a href="member/edit-member.php" class="btn btn-primary btn-block mb-4 text-center" style="color: white">
+                        Edit
                     </a>
+
                 </div>
             <?php
             }
