@@ -13,7 +13,7 @@ require_once "member-header.php";
                 <fieldset style="border: purple solid 3px" class="longlivecenter justify-content-center">
                     <legend>Inscription 1/2</legend>
                     <div class="justify-content-center">
-                        <span id="error">
+                        <span id="error" class="error">
                             <?php
                             if (!empty($_SESSION['error'])){
                                 echo $_SESSION['error'];

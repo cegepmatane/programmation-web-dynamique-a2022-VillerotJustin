@@ -9,12 +9,17 @@ require_once "header.php";
         <div class="container">
             <br><br><br><br><br><br>
             <h1 class="py-3 longlivecenter"><?=$tittle?></h1>
-            <?php
-            if(isset($_SESSION['member']['username']) && !empty($_SESSION['member']['username'])){
-                ?>
-                <span> Bonjour <?=$_SESSION['member']['username']?> <img src="images/<?=$_SESSION['member']['avatar']?>" alt="avatar" class="image" width="50" height="50"></span>
+            <div class="longlivecenter">
+                <span id="error" class=" error longlivecenter">
                 <?php
-            }
+                if (!empty($_SESSION['error'])){
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+                ?>
+            </span>
+            </div>
+            <?php
             // afficher is conneter
             if(empty($_SESSION['member']['username'])){
                 include_once "member/auth.php";

@@ -256,32 +256,8 @@ h2 {
 	text-align: center;
 }
 
-#liste-film {
-	display: flex;
-	width: 80%;
-	flex-wrap: wrap;
-	padding: 1em;
-	margin: 0 auto;
-}
-
-#liste-film .film {
-	margin: 2em;
-	padding: 2em;
-	background: #f1f1f1;
-	border-radius: 10px;
-	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-	min-height: 10em;
-	border: solid 1px black;
-	margin: 5px;
-	padding: 5px;
-}
-
-
-#liste-film .film .illustration {
-	float: left;
-	width: 10em;
-	height: 10em;
-	margin: 1em;
+.error {
+	color: red;
 }
 
 

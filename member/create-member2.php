@@ -22,12 +22,12 @@ if (isset($_SESSION['error'])) {
 
 $MEMBER_FILTER = array(
     'username' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'password' => FILTER_SANITIZE_SPECIAL_CHARS,
+    'password' => FILTER_SANITIZE_ENCODED,
 );
 
 $tempMember = filter_input_array(INPUT_POST, $MEMBER_FILTER);
 $tempMember['username'] = addslashes($tempMember['username']);
-$tempMember['password'] = password_hash(addslashes($tempMember['password']), PASSWORD_DEFAULT);
+$tempMember['password'] = $tempMember['password'];
 
 $_SESSION['dataInscription']['username'] = $tempMember['username'];
 $_SESSION['dataInscription']['password'] = $tempMember['password'];

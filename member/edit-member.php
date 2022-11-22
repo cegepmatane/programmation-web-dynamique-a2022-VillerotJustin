@@ -11,7 +11,15 @@ require 'member-header.php';
         <br>
         <div class="d-flex justify-content-center">
             <form class="justify-content-center" action="edit-member-treatment.php" method="post" enctype="multipart/form-data">
-                <input hidden id="id" name="id" value="<?=$_SESSION['member']['id']?>">id :<?=$_SESSION['member']['id']?>
+                <span id="error">
+                    <?php
+                    if (!empty($_SESSION['error'])){
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    }
+                    ?>
+                </span>
+                <input hidden id="id" name="id" value="<?=$_SESSION['member']['id']?>">
                 <table class="table table-dark table-striped align-middle my-3 insertRowTable w-auto">
                     <thead>
                     <tr>
@@ -19,13 +27,7 @@ require 'member-header.php';
                         <th>Value</th>
                     </tr>
                     </thead>
-                    <tfoot>
-                    <tr>
-                        <th colspan="5" class="tblFooters text-end">
-                            <input class="btn btn-primary" type="submit" value="Go">
-                        </th>
-                    </tr>
-                    </tfoot><tbody>
+                    <tbody>
                     <tr>
                         <td class="longlivecenter">
                             Username
@@ -60,14 +62,51 @@ require 'member-header.php';
                     </tr>
                     <tr>
                         <td class="longlivecenter">
-                            Avatar Leave blank if do not change.
-                            <img src="../images/<?=$_SESSION['member']['avatar']?>" height="100" width="100">
+                            Avatar (leave blank if unchanged)
+                            <img alt="current avatar" src="../images/<?=$_SESSION['member']['avatar']?>" height="100" width="100">
                         </td>
                         <td>
                             <input type="file" name="avatar" id="avatar">
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2" class="longlivecenter">
+                            Security<br>
+                            Leave blank if unchanged
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="longlivecenter">
+                            New Password
+                        </td>
+                        <td>
+                            <input type="Password" name="NewPassword" id="NewPassword" value="" size="30" data-maxlength="30" data-type="CHAR" class="textfield" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="longlivecenter">
+                            Confirm New Password
+                        </td>
+                        <td>
+                            <input type="Password" name="NewPassword2" id="NewPassword2" value="" size="30" data-maxlength="30" data-type="CHAR" class="textfield" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="longlivecenter">
+                            Old Password
+                        </td>
+                        <td>
+                            <input type="Password" name="Password" id="Password" value="" size="30" data-maxlength="30" data-type="CHAR" class="textfield" >
+                        </td>
+                    </tr>
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="2" class="tblFooters justify-content-center">
+                            <input class="btn btn-primary" type="submit" value="Go">
+                        </th>
+                    </tr>
+                    </tfoot>
                 </table>
             </form>
         </div>
