@@ -3,6 +3,10 @@ require_once "../configuration.php";
 require_once ACCES_PATH . "TribeDAO.php";
 $Logo       = $_FILES["logo"];
 $backGround = $_FILES['backgroung'];
+$races      = $_POST['race'];
+//echo "<pre>";
+//print_r($races);
+//echo "</pre>";
 
 $TRIBE_FILTER = array(
     'id' => FILTER_SANITIZE_NUMBER_INT,
@@ -10,7 +14,6 @@ $TRIBE_FILTER = array(
     'summary' => FILTER_SANITIZE_SPECIAL_CHARS,
     'description' => FILTER_SANITIZE_SPECIAL_CHARS,
     'color' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'races' => FILTER_SANITIZE_SPECIAL_CHARS,
     'mechanics' => FILTER_SANITIZE_SPECIAL_CHARS,
     'classes' => FILTER_SANITIZE_SPECIAL_CHARS,
     'personage' => FILTER_SANITIZE_SPECIAL_CHARS,
@@ -19,7 +22,6 @@ $TRIBE_FILTER = array(
 $tribe = filter_input_array(INPUT_POST, $TRIBE_FILTER);
 $tribe['summary'] = addslashes($tribe['summary']);
 $tribe['description'] = addslashes($tribe['description']);
-$tribe['races'] = addslashes($tribe['races']);
 $tribe['mechanics'] = addslashes($tribe['mechanics']);
 $tribe['classes'] = addslashes($tribe['classes']);
 $tribe['personage'] = addslashes($tribe['personage']);
@@ -66,6 +68,9 @@ function addFile($file){
 }
 
 $result = TribeDAO::editTribe($tribe, $Logo, $backGround);
+
+TribeDAO::editRace($tribe['id'], $races);
+
 
 if (0!=$result and $error == null) {
     header('Location: admin-list.php?x=4');

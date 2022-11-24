@@ -78,12 +78,15 @@ require 'admin-header.php';
                             </td>
                             <td>
                                 <?php
+//                                echo "<pre>";
+//                                print_r($racesTribe);
+//                                echo "</pre>";
                                 $counter = 0;
                                 foreach ($races as $race){
                                     ?>
                                     <div class="text-left justify-content-left">
-                                        <input type="checkbox" <?php if (in_array($race['id'], $racesTribe) ) {echo"Checked";}?> id="<?=$race['libele_race']?>" name="<?=$race['libele_race']?>" value="<?=$race['id_race']?>">
-                                        <label for="<?=$race['libele_race']?>"> <?=$race['libele_race']?></label><br>
+                                        <input type="checkbox" <?php if(!empty($racesTribe)){if(in_array($race['id_race'], $racesTribe) ) {echo"Checked";}}?> id="race[]" name="race[]" value="<?=$race['id_race']?>">
+                                        <label for="<?=$race['libele_race']?>"> <?=$race['libele_race']?></label> <?=$race['id_race']?><br>
                                     </div>
                                     <?php
                                     $counter+=1;

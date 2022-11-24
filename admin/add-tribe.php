@@ -77,7 +77,7 @@ require 'admin-header.php';
                                 foreach ($races as $race){
                                     ?>
                                         <div class="text-left justify-content-left">
-                                            <input type="checkbox" id="<?=$race['libele_race']?>" name="<?=$race['libele_race']?>" value="<?=$race['id_race']?>">
+                                            <input type="checkbox" id="race[]" name="race[]" value="<?=$race['id_race']?>">
                                             <label for="<?=$race['libele_race']?>"> <?=$race['libele_race']?></label><br>
                                         </div>
                                     <?php
