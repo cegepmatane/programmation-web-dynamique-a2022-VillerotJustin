@@ -43,9 +43,7 @@
 	margin-left: -15px;
 }
 
-a {
-	text-decoration: none;
-}
+
 
 .W {
 	background: rgb(240, 240, 240);
@@ -244,7 +242,10 @@ a {
 	color: white;
 }
 
-
+a {
+	text-decoration: none;
+	color: white;
+}
 
 .longlivecenter {
 	text-align: center;
