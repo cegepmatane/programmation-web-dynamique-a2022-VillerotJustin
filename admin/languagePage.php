@@ -1,7 +1,7 @@
 <?php
 require_once "../configuration.php";
 require_once ACCES_PATH . "ClicDAO.php";
-$tittle = "Dashboard";
+$tittle = "Languages Info";
 require 'admin-header.php';
 
 $DailylangInfo = ClicDAO::dailyLangStats();

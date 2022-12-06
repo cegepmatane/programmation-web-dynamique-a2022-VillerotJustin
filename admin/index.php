@@ -27,7 +27,7 @@ require 'admin-header.php';
         <h1><?=$tittle?></h1>
         <div class="container">
             <div class="row my-3">
-                <a href="" class="col-4 my-3 longlivecenter" style="justify-content: center">
+                <a href="racePage.php" class="col-4 my-3 longlivecenter" style="justify-content: center">
                     <h3>Tribes races</h3>
                     <table class="table table-dark table-striped align-middle my-3 insertRowTable w-auto longlivecenter">
                         <tr>
@@ -46,7 +46,7 @@ require 'admin-header.php';
                         </tr>
                     </table>
                 </a>
-                <a href="" class="col-4 my-3 longlivecenter" style="justify-content: center">
+                <a href="racePage.php" class="col-4 my-3 longlivecenter" style="justify-content: center">
                     <h3>Races by Tribe</h3>
                     <div class="char-contenair" style="width: 400px; margin: 50px auto;">
                         <canvas id="barChart"></canvas>
@@ -129,7 +129,7 @@ require 'admin-header.php';
                 <div class="col-4 my-3 longlivecenter" style="justify-content: center">
                     <h3>Daily GIF</h3>
                     <a href="" id="itselfGif">
-                        <img id="gif-wrap" src="" alt="GIF">
+                        <img id="gif-wrap" src="" alt="GIF" width="407px">
                     </a>
                     <div id="gif-logo"><button id="new-gif">New Gif</button>
                     <script>

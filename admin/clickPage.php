@@ -1,7 +1,7 @@
 <?php
 require_once "../configuration.php";
 require_once ACCES_PATH . "ClicDAO.php";
-$tittle = "Dashboard";
+$tittle = "Clics & visit Info";
 require 'admin-header.php';
 
 $clicInfo = ClicDAO::dailyClicStats();
