@@ -23,10 +23,10 @@ require 'header.php';
                     <div id="Overlay">
                         <div class="container">
                             <div class="row">
-                                <p class="row"><?=$tribe['dsc']?></p>
+                                <?php print($tribe['dsc'])?>
                             </div>
                             <div class="row">
-                                <p class="row"><?=$tribe['mechanics']?></p>
+                                <?=$tribe['mechanics']?>
                             </div>
                             <div class="row">
                                 <h2 class="row longlivecenter">Races</h2>
