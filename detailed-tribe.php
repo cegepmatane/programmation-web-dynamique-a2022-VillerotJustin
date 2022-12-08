@@ -9,7 +9,7 @@ ClicDAO::registerVisit($_SERVER);
 $id = filter_var($_GET['vers'], FILTER_SANITIZE_NUMBER_INT);
 
 $tribe = TribeDAO::detailedTribe($id);
-
+$races = TribeDAO::listRacefor($id);
 $tittle = $tribe['name'];
 require 'header.php';
 
@@ -30,7 +30,17 @@ require 'header.php';
                             </div>
                             <div class="row">
                                 <h2 class="row longlivecenter">Races</h2>
-                                <p class="row"><?=$tribe['races']?></p>
+                                <diw class="row">
+                                    <ul>
+                                        <?php
+                                        foreach ($races as $race){
+                                            echo "<li>";
+                                            print($race['name']);
+                                            echo "</li>";
+                                        }
+                                        ?>
+                                    </ul>
+                                </diw>
                             </div>
                             <div class="row">
                                 <h2 class="row longlivecenter">Classes</h2>

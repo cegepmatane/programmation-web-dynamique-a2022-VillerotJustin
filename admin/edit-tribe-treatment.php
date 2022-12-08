@@ -12,11 +12,11 @@ $TRIBE_FILTER = array(
     'id' => FILTER_SANITIZE_NUMBER_INT,
     'name' => FILTER_SANITIZE_SPECIAL_CHARS,
     'summary' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'description' => "",
+    'description' => FILTER_FLAG_STRIP_HIGH,
     'color' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'mechanics' => "",
-    'classes' => "",
-    'personage' => "",
+    'mechanics' => FILTER_FLAG_STRIP_HIGH,
+    'classes' => FILTER_FLAG_STRIP_HIGH,
+    'personage' => FILTER_FLAG_STRIP_HIGH,
 );
 
 $tribe = filter_input_array(INPUT_POST, $TRIBE_FILTER);
