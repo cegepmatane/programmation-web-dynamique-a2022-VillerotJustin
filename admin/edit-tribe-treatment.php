@@ -12,19 +12,19 @@ $TRIBE_FILTER = array(
     'id' => FILTER_SANITIZE_NUMBER_INT,
     'name' => FILTER_SANITIZE_SPECIAL_CHARS,
     'summary' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'description' => FILTER_SANITIZE_SPECIAL_CHARS,
+    'description' => "",
     'color' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'mechanics' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'classes' => FILTER_SANITIZE_SPECIAL_CHARS,
-    'personage' => FILTER_SANITIZE_SPECIAL_CHARS,
+    'mechanics' => "",
+    'classes' => "",
+    'personage' => "",
 );
 
 $tribe = filter_input_array(INPUT_POST, $TRIBE_FILTER);
 $tribe['summary'] = addslashes($tribe['summary']);
-$tribe['description'] = addslashes($tribe['description']);
-$tribe['mechanics'] = addslashes($tribe['mechanics']);
-$tribe['classes'] = addslashes($tribe['classes']);
-$tribe['personage'] = addslashes($tribe['personage']);
+$tribe['description'] = ($tribe['description']);
+$tribe['mechanics'] = ($tribe['mechanics']);
+$tribe['classes'] = ($tribe['classes']);
+$tribe['personage'] = ($tribe['personage']);
 
 
 $files = TribeDAO::checkFiles($tribe);
